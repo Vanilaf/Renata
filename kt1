@@ -1,0 +1,141 @@
+DROP TABLE IF EXISTS `Author`;
+
+CREATE TABLE `Author` (
+  `id` int(11) NOT NULL,
+  `surname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `middle_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `adress` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_number` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (1, 'Whitney', 'Kristy Corkery', '', '668 Lilyan Road\nJohnsonside, WY 78909', 'South Breanaside', '151.124.3832x334');
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (2, 'Vada', 'Mr. Jonatan Waelchi DDS', '', '304 Frances Shoal Suite 178\nNorth Kenyonborough, NM 87180', 'Hollisland', '778-569-6232');
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (3, 'Raina', 'Lavon Beer', '', '147 Kayley Underpass Apt. 607\nStantonview, WY 81129-1695', 'Kutchville', '(153)161-4812');
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (4, 'Taryn', 'Marta Ferry MD', '', '97340 Jerry Valley Apt. 909\nSouth Nathanael, SD 97063-2010', 'New Garrickport', '937.995.4513x0281');
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (5, 'Jaunita', 'Jarrell Mohr Jr.', '', '9628 Murray Mountains Apt. 343\nAlexietown, RI 05994-4849', 'Anahitown', '(395)252-3625');
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (6, 'Marilyne', 'Aliya Halvorson', '', '911 Willms Passage\nSethmouth, MO 05903-2881', 'Lake Arjunfort', '(316)402-7404');
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (7, 'Kurtis', 'Miss Johanna West DVM', '', '37320 Germaine Alley\nAbbottmouth, NV 77663-4216', 'Blandaton', '(161)385-6045');
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (8, 'Carson', 'Prof. Nathanael Morar', '', '995 Kub Village Suite 864\nLake Ashleigh, NM 99141', 'East Bethany', '954-494-8095x141');
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (9, 'Mathew', 'Quinn Halvorson', '', '7776 Ebert Plains Apt. 205\nLake Louieside, CT 34683-6285', 'West Jackieville', '(182)280-3175');
+INSERT INTO `client` (`id`, `surname`, `name`, `middle_name`, `adress`, `city`, `phone_number`) VALUES (10, 'Maria', 'Tremaine Halvorson', '', '114 Shanel Mount Suite 575\nBraunborough, ID 04750', 'Ashtynburgh', '065.652.3053x768');
+
+
+
+DROP TABLE IF EXISTS `publication`;
+
+CREATE TABLE `publication` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `author` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `publishing house` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (1, 'Nikoside', 'rerum', 'Bergnaum-Pacocha');
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (2, 'New Melodystad', 'pariatur', 'Corwin Ltd');
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (3, 'Kuvalishaven', 'autem', 'Homenick-Ritchie');
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (4, 'Candicefurt', 'velit', 'Wintheiser, Flatley and Mann');
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (5, 'Sanfordmouth', 'ipsa', 'Kuhlman, Towne and Treutel');
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (6, 'South Frederick', 'saepe', 'Strosin PLC', '41', 'aut');
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (7, 'West Norwood', 'et', 'Ritchie Inc');
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (8, 'Predovicberg', 'sed', 'Hills-Feil');
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (9, 'Beershire', 'voluptatem', 'Botsford, Howe and Bauch');
+INSERT INTO `publication` (`id`, `name`, `author`, `publishing house`, VALUES (10, 'West Jimmie', 'tenetur', 'Ferry and Sons');
+
+
+
+CREATE TABLE `publishing_house` (
+  `id` int(11) NOT NULL,
+  `publishing_house_id` int(11) DEFAULT NULL,
+  `products_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `_id` (`sweetshop_id`),
+  KEY `products_id` (`products_id`),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (1, 2, 60);
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (2, 32, 6);
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (3, 19, 4);
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (4, 62, 80);
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (5, 36, 88);
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (6, 94, 45);
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (7, 92, 27);
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (8, 58, 75);
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (9, 9, 46);
+INSERT INTO `have_product` (`id`, `publishing_house_id`, `products_id`) VALUES (10, 2, 70);
+
+
+DROP TABLE IF EXISTS `book`;
+
+CREATE TABLE `book` (
+  `id` int(11) NOT NULL,
+  `publishing_house_id` int(11) DEFAULT NULL,
+  `book_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `publishing_house_id` (`publishing_house_id`),
+  KEY `book_id` (`book_id`),
+  CONSTRAINT `book_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `publishing_house` (`id`),
+  CONSTRAINT `book_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (1, 47, 27);
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (2, 26, 18);
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (3, 1, 20);
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (4, 56, 53);
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (5, 23, 4);
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (6, 44, 70);
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (7, 69, 70);
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (8, 18, 63);
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (9, 37, 55);
+INSERT INTO `book` (`id`, `publishing_house`, `book_id`) VALUES (10, 96, 45);
+
+
+DROP TABLE IF EXISTS `reader_list`;
+
+CREATE TABLE `reader_list` (
+  `id` int(11) NOT NULL,
+  `reader_id` int(11) DEFAULT NULL,
+  `reader_list_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `reader_id` (`reader_list_id`),
+  KEY `reader_list_id` (`reader_id`),
+  CONSTRAINT `reader_list_ibfk_1` FOREIGN KEY (`reader_list_id`) REFERENCES `reader_list` (`id`),
+  CONSTRAINT `reader_list_ibfk_2` FOREIGN KEY (`reader_id`) REFERENCES `reader` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (1, 793, 17, 36);
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (2, 6917, 25, 53);
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (3, 2655, 17, 57);
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (4, 2120, 16, 97);
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (5, 9806, 71, 64);
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (6, 7398, 6, 84);
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (7, 610, 99, 82);
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (8, 7773, 18, 71);
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (9, 9921, 6, 80);
+INSERT INTO `reader_list` (`id`, `reader`, `reader_list_id`, `reader_id`) VALUES (10, 2862, 81, 40);
+
+
+
+
+CREATE TABLE `account_card` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `account_card` (`id`, `name`) VALUES (1, 'Emmie Schinner');
+INSERT INTO `account_card` (`id`, `name`) VALUES (2, 'Merritt Dickens');
+INSERT INTO `account_card` (`id`, `name`) VALUES (3, 'Constantin Kris');
+INSERT INTO `account_card` (`id`, `name`) VALUES (4, 'Anabel Langworth');
+INSERT INTO `account_card` (`id`, `name`) VALUES (5, 'Dr. Keith Murazik');
+INSERT INTO `account_card` (`id`, `name`) VALUES (6, 'Ebba Harris');
+INSERT INTO `account_card` (`id`, `name`) VALUES (7, 'Juvenal Wisozk');
+INSERT INTO `account_card` (`id`, `name`) VALUES (8, 'Mr. Alford Senger IV');
+INSERT INTO `account_card` (`id`, `name`) VALUES (9, 'Emely Moore');
+INSERT INTO `account_card` (`id`, `name`) VALUES (10, 'Johathan Schmidt');
+
+
+
